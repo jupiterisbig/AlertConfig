@@ -19,19 +19,31 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Threshold Limit</span>
                         <div class='col-md-7'>
-                            <input 
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel1"
+                                ngModel name="SYS_DISC_THRESHOLD_LMT"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !SYS_DISC_THRESHOLD_LMT.valid}" 
+                                #SYS_DISC_THRESHOLD_LMT="ngModel" 
+                                required>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                            <!-- <input 
                                 class='form-control numberInput' 
                                 type="number" ngMinValue="1"  value="0.5" step="0.1" 
                                 ngModel name="SYS_DISC_THRESHOLD_LMT"
                                 [ngClass]="{'invalid-textbox' :postForm.submitted && !SYS_DISC_THRESHOLD_LMT.valid}" 
                                 #SYS_DISC_THRESHOLD_LMT="ngModel" 
-                                required>                            
-                            <span class="unit">Hr</span>
-                            <div *ngIf="postForm.submitted && !SYS_DISC_THRESHOLD_LMT.valid">
+                                required>                             -->
+                            <span class="unit">Minutes</span>
+                            <div *ngIf="postForm.submitted && (!SYS_DISC_THRESHOLD_LMT.valid || SYS_DISC_THRESHOLD_LMT.value == 'Select Value') ">
                                 <label class="validation-message">*This field is required</label>
-                            </div>
-                            <div *ngIf="SYS_DISC_THRESHOLD_LMT.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
                             </div>
                         </div>
                     </div>  
@@ -45,18 +57,24 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Threshold Limit</span>
                         <div class='col-md-7'>
-                            <input class='form-control numberInput' 
-                                type="number" min="0" value="0.3" step="0.1" 
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel2"
                                 ngModel name="DEVICE_DISC_THRESHOLD_LMT"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !DEVICE_DISC_THRESHOLD_LMT.valid}"
-                                #DEVICE_DISC_THRESHOLD_LMT="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !DEVICE_DISC_THRESHOLD_LMT.valid}" 
+                                #DEVICE_DISC_THRESHOLD_LMT="ngModel" 
                                 required>
-                            <span class="unit">Hr</span>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                            <span class="unit">Minutes</span>
                             <div *ngIf="postForm.submitted && !DEVICE_DISC_THRESHOLD_LMT.valid">
                                 <label class="validation-message">*This field is required</label>
-                            </div>
-                            <div *ngIf="DEVICE_DISC_THRESHOLD_LMT.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
                             </div>
                         </div>
                     </div>  
@@ -70,24 +88,25 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Threshold Limit</span>
                         <div class='col-md-7'>
-                            <input 
-                                class='form-control numberInput' 
-                                type="number" min="0" value="0.30" step="0.01" 
-                                name="ZERO_GEN_THRESHOLD_LMT"
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel3"
                                 ngModel name="ZERO_GEN_THRESHOLD_LMT"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !ZERO_GEN_THRESHOLD_LMT.valid}"
-                                #ZERO_GEN_THRESHOLD_LMT="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !ZERO_GEN_THRESHOLD_LMT.valid}" 
+                                #ZERO_GEN_THRESHOLD_LMT="ngModel" 
                                 required>
-                            <div id="specialUnit">
-                                <span class="unit" id="daylight">Daylight</span>
-                                <span class="unit">Hr</span> 
-                            </div> 
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                            <span class="unit">Minutes</span> 
                             <div *ngIf="postForm.submitted && !ZERO_GEN_THRESHOLD_LMT.valid">
                                 <label class="validation-message">*This field is required</label>
-                            </div> 
-                            <div *ngIf="ZERO_GEN_THRESHOLD_LMT.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
-                            </div>                    
+                            </div>                   
                         </div>
                     </div>  
                 </div>
@@ -96,20 +115,24 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Sunrise/Sunset Buffer</span>
                         <div class='col-md-7'>
-                            <input 
-                                class='form-control numberInput' 
-                                type="number"  min="0" value="0.45" step="0.01" 
-                                name="ZERO_GEN_SunriseBuffer"
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel4"
                                 ngModel name="ZERO_GEN_SunriseBuffer"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !ZERO_GEN_SunriseBuffer.valid}"
-                                #ZERO_GEN_SunriseBuffer="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !ZERO_GEN_SunriseBuffer.valid}" 
+                                #ZERO_GEN_SunriseBuffer="ngModel" 
                                 required>
-                            <span class="unit">Hr</span>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                            <span class="unit">Minutes</span>
                             <div *ngIf="postForm.submitted && !ZERO_GEN_SunriseBuffer.valid">
                                 <label class="validation-message">*This field is required</label>
-                            </div>  
-                            <div *ngIf="ZERO_GEN_SunriseBuffer.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
                             </div>  
                         </div>
                     </div>  
@@ -125,21 +148,29 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>PR Level</span>
                         <div class='col-md-7'>
-                            <input 
-                                class='form-control numberInput' 
-                                type="number" min="0" value="70" step="1" 
-                                name="PR_DEVIATION_PR_Level"
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel5"
                                 ngModel name="PR_DEVIATION_PR_Level"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PR_DEVIATION_PR_Level.valid}"
-                                #PR_DEVIATION_PR_Level="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PR_DEVIATION_PR_Level.valid}" 
+                                #PR_DEVIATION_PR_Level="ngModel" 
                                 required>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                                <option>70</option>
+                                <option>80</option>
+                                <option>90</option>
+                                <option>100</option>
+                            </select>
                             <span class="unit">%</span>
                             <div *ngIf="postForm.submitted && !PR_DEVIATION_PR_Level.valid">
                                 <label class="validation-message">*This field is required</label>
-                            </div>  
-                            <div *ngIf="PR_DEVIATION_PR_Level.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
-                            </div>
+                            </div> 
                         </div>
                     </div>  
                 </div>
@@ -148,21 +179,25 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Threshold Limit</span>
                         <div class='col-md-7'>
-                            <input 
-                                class='form-control numberInput' 
-                                type="number" min="0" value="0.3" step="0.1" 
-                                name="PR_DEVIATION_THRESHOLD_LMT"
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel6"
                                 ngModel name="PR_DEVIATION_THRESHOLD_LMT"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PR_DEVIATION_THRESHOLD_LMT.valid}"
-                                #PR_DEVIATION_THRESHOLD_LMT="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PR_DEVIATION_THRESHOLD_LMT.valid}" 
+                                #PR_DEVIATION_THRESHOLD_LMT="ngModel" 
                                 required>
-                            <span class="unit">Hr</span>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                            <span class="unit">Minutes</span>
                             <div *ngIf="postForm.submitted && !PR_DEVIATION_THRESHOLD_LMT.valid">
                                 <label class="validation-message">*This field is required</label>
                             </div> 
-                            <div *ngIf="PR_DEVIATION_THRESHOLD_LMT.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
-                            </div>
                         </div>
                     </div>  
                 </div>
@@ -171,21 +206,25 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Sunrise/Sunset Buffer</span>
                         <div class='col-md-7'>
-                            <input 
-                                class='form-control numberInput' 
-                                type="number" min="0" value="0.45" step="0.01" 
-                                name="PR_DEVIATION_SunriseBuffer"
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel7"
                                 ngModel name="PR_DEVIATION_SunriseBuffer"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PR_DEVIATION_SunriseBuffer.valid}"
-                                #PR_DEVIATION_SunriseBuffer="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PR_DEVIATION_SunriseBuffer.valid}" 
+                                #PR_DEVIATION_SunriseBuffer="ngModel" 
                                 required>
-                            <span class="unit">Hr</span>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                            <span class="unit">Minutes</span>
                             <div *ngIf="postForm.submitted && !PR_DEVIATION_SunriseBuffer.valid">
                                 <label class="validation-message">*This field is required</label>
                             </div> 
-                            <div *ngIf="PR_DEVIATION_SunriseBuffer.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
-                            </div>
                         </div>
                     </div>  
                 </div>
@@ -198,21 +237,25 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Temp Level</span>
                         <div class='col-md-7'>
-                            <input 
-                                class='form-control numberInput' 
-                                type="number" min="0" value="20" step="1" 
-                                name="PANEL_TEMP_Temp_Level"
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel8"
                                 ngModel name="PANEL_TEMP_Temp_Level"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PANEL_TEMP_Temp_Level.valid}"
-                                #PANEL_TEMP_Temp_Level="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PANEL_TEMP_Temp_Level.valid}" 
+                                #PANEL_TEMP_Temp_Level="ngModel" 
                                 required>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
                             <span class="unit">C</span>
                             <div *ngIf="postForm.submitted && !PANEL_TEMP_Temp_Level.valid">
                                 <label class="validation-message">*This field is required</label>
                             </div> 
-                            <div *ngIf="PANEL_TEMP_Temp_Level.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
-                            </div>
                         </div>
                     </div>  
                 </div>
@@ -221,21 +264,25 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Threshold Limit</span>
                         <div class='col-md-7'>
-                            <input 
-                                class='form-control numberInput' 
-                                type="number" min="0" value="0.3" step="0.1" 
-                                name="PANEL_TEMP_THRESHOLD_LMT"
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel9"
                                 ngModel name="PANEL_TEMP_THRESHOLD_LMT"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PANEL_TEMP_THRESHOLD_LMT.valid}"
-                                #PANEL_TEMP_THRESHOLD_LMT="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PANEL_TEMP_THRESHOLD_LMT.valid}" 
+                                #PANEL_TEMP_THRESHOLD_LMT="ngModel" 
                                 required>
-                            <span class="unit">Hr</span>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                            <span class="unit">Minutes</span>
                             <div *ngIf="postForm.submitted && !PANEL_TEMP_THRESHOLD_LMT.valid">
                                 <label class="validation-message">*This field is required</label>
                             </div> 
-                            <div *ngIf="PANEL_TEMP_THRESHOLD_LMT.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
-                            </div>
                         </div>
                     </div>  
                 </div>
@@ -244,34 +291,30 @@
                     <div class="input-group col-md-7 timeLine">
                         <span class='col-md-5 control-span'>Sunrise/Sunset Buffer</span>
                         <div class='col-md-7'>
-                            <input 
-                                class='form-control numberInput' 
-                                type="number" min="0" value="0.45" step="0.01" 
-                                name="PANEL_TEMP_SunriseBuffer"
+                            <select 
+                                class="form-control numberInput" 
+                                id="sel9"
                                 ngModel name="PANEL_TEMP_SunriseBuffer"
-                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PANEL_TEMP_SunriseBuffer.valid}"
-                                #PANEL_TEMP_SunriseBuffer="ngModel"
+                                [ngClass]="{'invalid-textbox' :postForm.submitted && !PANEL_TEMP_SunriseBuffer.valid}" 
+                                #PANEL_TEMP_SunriseBuffer="ngModel" 
                                 required>
-                            <span class="unit">Hr</span>
+                                <option>Select Value</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                                <option>50</option>
+                                <option>60</option>
+                            </select>
+                            <span class="unit">Minutes</span>
                             <div *ngIf="postForm.submitted && !PANEL_TEMP_SunriseBuffer.valid">
                                 <label class="validation-message">*This field is required</label>
                             </div> 
-                            <div *ngIf="PANEL_TEMP_SunriseBuffer.value < 0">
-                                <label class="validation-message">*This field is greater than 0</label>
-                            </div>
                         </div>
                     </div>  
                 </div>
             </div>
         </div>   
-        <!-- <mat-form-field>
-            <input matInput type="text" name="title" ngModel required minlength="3" #title="ngModel" placeholder="post a title">
-            <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <textarea matInput rows="6" name="content" ngModel required #content="ngModel" placeholder="post a content"></textarea>
-            <mat-error *ngIf="content.invalid">Please enter a post content.</mat-error> 
-        </mat-form-field>     -->
         <div id="btn-group" class="row">
             <button class="btn btn-primary" type="submit">Save</button> 
             <button class="btn btn-primary">close</button>
