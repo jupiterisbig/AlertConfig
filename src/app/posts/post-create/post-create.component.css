@@ -1,0 +1,67 @@
+mat-toolbar{
+    margin-top: 2rem;
+    background-color: #e1e1d0;
+    height: 50px;
+    color: white;
+}
+
+#headerBtns > button {
+    width: 20%;
+    margin-left: 20px;
+}
+
+.unit-box{
+    margin-top: 3rem;
+}
+
+#oemBtn{
+    background-color: #ffdd99;
+}
+
+#customBtn{
+    background-color: #ffb31a;
+}
+
+.form-body{
+    padding-left: 2%;
+    border: 1px #e1e1d0 solid;
+    padding: 30px;
+}
+
+.numberInput{
+    height: 21px;
+    width: 75%;
+    margin-left: -40px;
+}
+
+.timeLine{
+    padding-top: 10px;
+}
+
+#btn-group{
+    margin-top: 4rem;
+    text-align: center;
+}
+
+#btn-group > button{
+    margin-left: 20px;
+    width: 10%;
+}
+
+.unit{
+    margin-left: 1rem;
+    font-size: 14px;
+}
+
+#daylight{
+    font-size: 8px;
+}
+
+#specialUnit{
+    margin-left: 0px;
+}
+
+.validation-message{
+    color: red;
+    margin-left: -25%;
+}
